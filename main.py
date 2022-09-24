@@ -1,12 +1,18 @@
+"""
+
+A program the uses the Google Maps Distance Matrix API to automatically obtain the travel time from one location to
+another. Using Twilio, it sends a text to a list of phones.
+
+"""
+
 from apscheduler.schedulers.blocking import BlockingScheduler
 import requests
 from twilio.rest import Client
 from datetime import datetime
 
 # API key
-api_file = open("api-key.txt", "r")
-api_key = api_file.read()
-api_file.close()
+with open("api_key.txt", "r") as api_file:
+    api_key = api_file.read()
 
 # Current time
 current_time = datetime.now().time()
@@ -41,3 +47,13 @@ time = r.json()["rows"][0]["elements"][0]["duration_in_traffic"]["text"]
 # print the total travel time
 travel_time = f"The total travel time from {start_name} to {end_name} is {time}."
 print(travel_time)
+
+# Twilio account sid and authorization token
+with open("account_sid.txt", "r") as account_file:
+    account_sid = account_file.read()
+
+with open("auth_token.txt", "r") as auth_file:
+    auth_token = auth_file.read()
+
+
+

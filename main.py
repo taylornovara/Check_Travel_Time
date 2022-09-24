@@ -1,6 +1,6 @@
 """
 
-A program the uses the Google Maps Distance Matrix API to automatically obtain the travel time from one location to
+A program that uses the Google Maps Distance Matrix API to automatically obtain the travel time from one location to
 another. Using Twilio, it sends a text to a list of phones.
 
 """

@@ -4,11 +4,22 @@ A program that uses the Google Maps Distance Matrix API to automatically obtain 
 another. Using Twilio, it sends a text to a list of phones.
 
 """
-
+import pandas
 from apscheduler.schedulers.blocking import BlockingScheduler
 import requests
-from twilio.rest import Client
+# from twilio.rest import Client
 from datetime import datetime
+
+# Creates an empty dictionary
+empty_dict = {"Time": [],
+              "Origin": [],
+              "Destination": [],
+              "Duration": []
+              }
+
+# Creates a Dataframe from the empty dictionary and appends the headers to data.csv
+initial_data = pandas.DataFrame(empty_dict)
+initial_data.to_csv("data.csv", mode="a")
 
 
 def check_travel_time():
@@ -16,7 +27,9 @@ def check_travel_time():
     with open("api_key.txt", "r") as api_file:
         api_key = api_file.read()
 
-    # Current time
+    # Current time and date
+    current_date = datetime.now().date()
+    print(current_date)
     current_time = datetime.now().time()
     print(current_time)
     # Sets origin and destination based on time of day
@@ -45,30 +58,41 @@ def check_travel_time():
                      "&key=" + api_key)
 
     # Return time as text
-    time = r.json()["rows"][0]["elements"][0]["duration_in_traffic"]["text"]
+    duration = r.json()["rows"][0]["elements"][0]["duration_in_traffic"]["text"]
 
     # Print the total travel time
-    travel_time = f"The total travel time from {start_name} to {end_name} is {time}."
+    travel_time = f"The total travel time from {start_name} to {end_name} is {duration}."
     print(travel_time)
 
-    # Twilio account sid and authorization token
-    with open("account_sid.txt", "r") as account_file:
-        account_sid = account_file.read()
-    with open("auth_token.txt", "r") as auth_file:
-        auth_token = auth_file.read()
+    # Creates a dictionary with the info from Google Maps API
+    data_dict = {"Time": [current_time],
+                 "Origin": [start_name],
+                 "Destination": [end_name],
+                 "Duration": [duration]
+                 }
 
-    # Creates a Client object from Twilio
-    client = Client(account_sid, auth_token)
+    # Sorts the data from above into a Dataframe and appends it to our data.csv file
+    data = pandas.DataFrame(data_dict)
+    data.to_csv("data.csv", mode="a", header=False)
 
-    # List of numbers to text
-    numbers_to_message = ['+12055639451', '+12053965212']
-    # Looping through the numbers and send the text to each number
-    for number in numbers_to_message:
-        message = client.messages.create(
-            messaging_service_sid='MG624d8354f0ca7aa37be60d1a39ed47de',
-            body=travel_time,
-            to=number
-        )
+    # # Twilio account sid and authorization token
+    # with open("account_sid.txt", "r") as account_file:
+    #     account_sid = account_file.read()
+    # with open("auth_token.txt", "r") as auth_file:
+    #     auth_token = auth_file.read()
+
+    # # Creates a Client object from Twilio
+    # client = Client(account_sid, auth_token)
+    #
+    # # List of numbers to text
+    # numbers_to_message = ['+12055639451', '+12053965212']
+    # # Looping through the numbers and send the text to each number
+    # for number in numbers_to_message:
+    #     message = client.messages.create(
+    #         messaging_service_sid='MG624d8354f0ca7aa37be60d1a39ed47de',
+    #         body=travel_time,
+    #         to=number
+    #     )
 
 
 check_travel_time()

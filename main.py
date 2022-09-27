@@ -10,6 +10,12 @@ import requests
 # from twilio.rest import Client
 from datetime import datetime
 
+# Current time and date
+current_date = datetime.now().date()
+print(current_date)
+# Writes a date heading and appends it to data.csv file
+with open("data.csv", mode="a") as data:
+    data.write(f"{current_date}")
 # Creates an empty dictionary
 empty_dict = {"Time": [],
               "Origin": [],
@@ -27,9 +33,6 @@ def check_travel_time():
     with open("api_key.txt", "r") as api_file:
         api_key = api_file.read()
 
-    # Current time and date
-    current_date = datetime.now().date()
-    print(current_date)
     current_time = datetime.now().time()
     print(current_time)
     # Sets origin and destination based on time of day
@@ -71,9 +74,9 @@ def check_travel_time():
                  "Duration": [duration]
                  }
 
-    # Sorts the data from above into a Dataframe and appends it to our data.csv file
-    data = pandas.DataFrame(data_dict)
-    data.to_csv("data.csv", mode="a", header=False)
+    # Sorts the data from above into a Dataframe and appends it to data.csv file
+    df_data = pandas.DataFrame(data_dict)
+    df_data.to_csv("data.csv", mode="a", header=False)
 
     # # Twilio account sid and authorization token
     # with open("account_sid.txt", "r") as account_file:

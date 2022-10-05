@@ -1,3 +1,69 @@
 
 2022-09-27,Time,Origin,Destination,Duration
 0,09:00:05.186973,Lakeview Green,Grandview,16 mins
+0,09:30:05.464448,Lakeview Green,Grandview,15 mins
+0,10:00:05.470576,Lakeview Green,Grandview,15 mins
+0,10:30:05.465661,Lakeview Green,Grandview,15 mins
+0,11:30:05.471536,Lakeview Green,Grandview,16 mins
+0,12:00:05.465879,Grandview,Lakeview Green,16 mins
+0,12:30:05.465337,Grandview,Lakeview Green,16 mins
+0,13:00:05.462807,Grandview,Lakeview Green,16 mins
+0,14:00:05.462189,Grandview,Lakeview Green,16 mins
+0,14:30:05.460351,Grandview,Lakeview Green,16 mins
+0,07:30:05.464710,Lakeview Green,Grandview,17 mins
+2022-09-28,Time,Origin,Destination,Duration
+0,07:31:11.965167,Lakeview Green,Grandview,17 mins
+0,08:01:12.454344,Lakeview Green,Grandview,17 mins
+0,08:31:12.447539,Lakeview Green,Grandview,15 mins
+0,09:01:12.446487,Lakeview Green,Grandview,15 mins
+0,09:31:12.445920,Lakeview Green,Grandview,14 mins
+0,10:01:12.447810,Lakeview Green,Grandview,15 mins
+0,10:31:12.449861,Lakeview Green,Grandview,15 mins
+0,11:01:12.454944,Lakeview Green,Grandview,16 mins
+0,11:31:12.455529,Lakeview Green,Grandview,16 mins
+0,12:01:12.443098,Grandview,Lakeview Green,16 mins
+0,12:31:12.450262,Grandview,Lakeview Green,16 mins
+0,13:01:12.451215,Grandview,Lakeview Green,16 mins
+0,13:31:12.450457,Grandview,Lakeview Green,17 mins
+0,14:01:12.447788,Grandview,Lakeview Green,16 mins
+2022-09-28,Time,Origin,Destination,Duration
+0,16:07:10.051924,Grandview,Lakeview Green,18 mins
+0,16:37:11.532112,Grandview,Lakeview Green,24 mins
+0,17:07:11.531088,Grandview,Lakeview Green,22 mins
+0,17:37:11.530677,Grandview,Lakeview Green,23 mins
+0,18:07:11.534467,Grandview,Lakeview Green,15 mins
+0,18:37:11.551849,Grandview,Lakeview Green,15 mins
+0,19:07:11.531303,Grandview,Lakeview Green,15 mins
+0,19:37:11.537787,Grandview,Lakeview Green,15 mins
+0,20:07:11.527079,Grandview,Lakeview Green,14 mins
+2022-09-29,Time,Origin,Destination,Duration
+0,07:53:15.030418,Lakeview Green,Grandview,18 mins
+0,08:23:15.556479,Lakeview Green,Grandview,17 mins
+0,08:53:15.563674,Lakeview Green,Grandview,16 mins
+0,09:23:15.558311,Lakeview Green,Grandview,15 mins
+0,09:53:15.557215,Lakeview Green,Grandview,15 mins
+2022-09-29,Time,Origin,Destination,Duration
+0,10:30:11.108043,Lakeview Green,Grandview,15 mins
+0,11:00:11.709819,Lakeview Green,Grandview,16 mins
+0,11:30:11.703271,Lakeview Green,Grandview,16 mins
+0,12:00:11.698336,Grandview,Lakeview Green,16 mins
+0,12:30:11.729752,Grandview,Lakeview Green,17 mins
+0,13:00:11.698695,Grandview,Lakeview Green,17 mins
+0,13:30:11.703675,Grandview,Lakeview Green,17 mins
+0,14:00:11.708273,Grandview,Lakeview Green,17 mins
+2022-09-29,Time,Origin,Destination,Duration
+0,16:39:48.389895,Grandview,Lakeview Green,19 mins
+0,17:09:50.669202,Grandview,Lakeview Green,22 mins
+0,17:39:50.670156,Grandview,Lakeview Green,18 mins
+0,18:09:50.674420,Grandview,Lakeview Green,16 mins
+0,18:39:50.668553,Grandview,Lakeview Green,15 mins
+0,19:09:50.674059,Grandview,Lakeview Green,15 mins
+2022-09-30,Time,Origin,Destination,Duration
+0,15:28:44.098254,Grandview,Lakeview Green,17 mins
+0,15:58:45.073512,Grandview,Lakeview Green,17 mins
+0,16:28:45.068426,Grandview,Lakeview Green,21 mins
+0,16:58:45.069924,Grandview,Lakeview Green,19 mins
+0,17:28:45.071406,Grandview,Lakeview Green,16 mins
+0,17:58:45.064020,Grandview,Lakeview Green,15 mins
+0,18:28:45.076426,Grandview,Lakeview Green,15 mins
+0,18:58:45.072839,Grandview,Lakeview Green,15 mins

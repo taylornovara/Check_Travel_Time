@@ -1,7 +1,7 @@
 """
 
 A program that uses the Google Maps Distance Matrix API to automatically obtain the travel time from one location to
-another. Using Twilio, it sends a text to a list of phones.
+another. The program writes the information to a csv file.
 
 """
 import pandas
@@ -37,19 +37,35 @@ def check_travel_time():
     print(current_time)
     # Sets origin and destination based on time of day
     if current_time.hour < 12:
-        # Origin
+        # Origin 1
         start_name = "Lakeview Green"
         start_location = "2901+4th+Ave+S+Birmingham+AL+35233"
+
+        # Origin 2
+        origin_2_name = "Odyssey at Inverness"
+        origin_2_address = "104+Heatherbrook+Park+Dr+Birmingham+AL+35242"
+
+        # Stop 1
+        stop_1_name = "Odyssey at Inverness"
+        stop_1_address = "104+Heatherbrook+Park+Dr+Birmingham+AL+35242"
 
         # Destination
         end_name = "Grandview"
         end_location = "3690+Grandview+Pkwy+Birmingham+AL+35243"
     else:
-        # Origin
+        # Origin 1
         start_name = "Grandview"
         start_location = "3690+Grandview+Pkwy+Birmingham+AL+35243"
 
-        # Destination
+        # Origin 2
+        origin_2_name = "Odyssey at Inverness"
+        origin_2_address = "104+Heatherbrook+Park+Dr+Birmingham+AL+35242"
+
+        # Destination 1
+        stop_1_name = "Odyssey at Inverness"
+        stop_1_address = "104+Heatherbrook+Park+Dr+Birmingham+AL+35242"
+
+        # Destination 2
         end_name = "Lakeview Green"
         end_location = "2901+4th+Ave+S+Birmingham+AL+35233"
 
@@ -57,21 +73,26 @@ def check_travel_time():
     url = "https://maps.googleapis.com/maps/api/distancematrix/json"
 
     # GET request
-    r = requests.get(url + "?destinations=" + end_location + "&origins=" + start_location + "&departure_time=now" +
-                     "&key=" + api_key)
+    r = requests.get(url + "?destinations=" + end_location + "|" + stop_1_address + "&origins=" + start_location
+                     + "|" + origin_2_address + "&departure_time=now" + "&key=" + api_key)
 
     # Return time as text
-    duration = r.json()["rows"][0]["elements"][0]["duration_in_traffic"]["text"]
+    duration_1 = r.json()["rows"][0]["elements"][1]["duration_in_traffic"]["text"]
+    duration_2 = r.json()["rows"][1]["elements"][0]["duration_in_traffic"]["text"]
 
     # Print the total travel time
-    travel_time = f"The total travel time from {start_name} to {end_name} is {duration}."
-    print(travel_time)
+    travel_time_1 = f"The travel time from {start_name} to {stop_1_name} is {duration_1}."
+    travel_time_2 = f"The travel time from {stop_1_name} to {end_name} is {duration_2}."
+    print(travel_time_1)
+    print(travel_time_2)
 
     # Creates a dictionary with the info from Google Maps API
     data_dict = {"Time": [current_time],
                  "Origin": [start_name],
+                 "Stop": [stop_1_name],
+                 "Duration 1": [duration_1],
                  "Destination": [end_name],
-                 "Duration": [duration]
+                 "Duration 2": [duration_2]
                  }
 
     # Sorts the data from above into a Dataframe and appends it to data.csv file

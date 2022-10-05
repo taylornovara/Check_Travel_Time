@@ -1,7 +1,7 @@
 """
 
-A program that uses the Google Maps Distance Matrix API to automatically obtain the travel time from one location to
-another. The program writes the information to a csv file.
+A program that uses the Google Maps Distance Matrix API to automatically obtain the travel time from multiple
+locations. The program writes the information to a csv file.
 
 """
 import pandas
